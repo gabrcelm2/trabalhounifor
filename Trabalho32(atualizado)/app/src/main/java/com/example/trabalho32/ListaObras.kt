@@ -10,6 +10,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.trabalho32.adapter.ObrasAdapter
 import com.example.trabalho32.databinding.FragmentListaObrasBinding
 import com.example.trabalho32.model.Obras
@@ -20,7 +21,7 @@ class ListaObras : Fragment() {
     private lateinit var binding: FragmentListaObrasBinding
     private lateinit var obrasAdapter: ObrasAdapter
     private val listaObras = mutableListOf<Obras>()
-
+    private lateinit var recyclerView:RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,18 +43,21 @@ class ListaObras : Fragment() {
         val cadastro = arguments?.getString("cadastro")
 
         binding.txtNomeUsuario.text = "Bem-vindo(a)"
-        val recyclerViewObras = binding.recyclerViewObras
-        recyclerViewObras.layoutManager = GridLayoutManager(requireContext(), 2)
+        recyclerView = binding.recyclerViewObras
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         getObras()
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
-        recyclerViewObras.setHasFixedSize(true)
-        recyclerViewObras.adapter = obrasAdapter
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = obrasAdapter
     }
 
     private fun initSearchView() {
         binding.pesquisa.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                Log.d("SimpleSearchView", "Submit:$query")
+
+                obrasAdapter.search(query)
+                obrasAdapter.notifyDataSetChanged()
+                   Log.d("SimpleSearchView", "Submit:$query")
                 return false
             }
 
