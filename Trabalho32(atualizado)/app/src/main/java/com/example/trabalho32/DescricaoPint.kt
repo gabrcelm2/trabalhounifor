@@ -15,17 +15,19 @@ import android.speech.tts.TextToSpeech
 import android.speech.tts.Voice
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.Locale
 
 class DescricaoPint : Fragment(), TextToSpeech.OnInitListener {
 
     private lateinit var binding: FragmentDescricaoPintBinding
     private lateinit var textToSpeech: TextToSpeech
-
+    private lateinit var id:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            id = it.getString("id").toString()
         }
         textToSpeech = TextToSpeech(context, this)
     }
@@ -43,7 +45,7 @@ class DescricaoPint : Fragment(), TextToSpeech.OnInitListener {
 
         val audiodescricaoImageView = view.findViewById<ImageView>(R.id.audiodescricao)
         val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
-
+        var obra = Firebase.firestore.collection("Obras").document(id).get()
         audiodescricaoImageView.setOnClickListener {
             val text = descriptionTextView.text.toString()
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
