@@ -34,7 +34,7 @@ class ObrasAdapter(private val context:
     override fun getItemCount() = listaObras.size
 
     override fun onBindViewHolder(holder: ObrasViewHolder, position: Int) {
-        holder.imgObra.setImageResource(listaObras[position].img!!)
+//        holder.imgObra.setImageResource(listaObras[position].img!!)
         holder.txtObra.text = listaObras[position].nome
         holder.obraId = listaObras[position].id.toString()
 

@@ -45,7 +45,7 @@ class ListaObras : Fragment() {
         binding.txtNomeUsuario.text = "Bem-vindo(a)"
         recyclerView = binding.recyclerViewObras
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        getObras()
+//        getObras()
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = obrasAdapter
@@ -76,17 +76,17 @@ class ListaObras : Fragment() {
         }
     }
 
-    private fun getObras() {
-        val obras1 = Obras(R.drawable.pint1, "Amor e Ódio")
-        listaObras.add(obras1)
-
-        val obras2 = Obras(R.drawable.pint2, "Luz na Escuridão")
-        listaObras.add(obras2)
-
-        val obras3 = Obras(R.drawable.pint3,"Um dia com Ela")
-        listaObras.add(obras3)
-
-        val obras4 = Obras(R.drawable.pint4,"Idas e Vindas")
-        listaObras.add(obras4)
-    }
+//    private fun getObras() {
+//        val obras1 = Obras(R.drawable.pint1, "Amor e Ódio")
+//        listaObras.add(obras1)
+//
+//        val obras2 = Obras(R.drawable.pint2, "Luz na Escuridão")
+//        listaObras.add(obras2)
+//
+//        val obras3 = Obras(R.drawable.pint3,"Um dia com Ela")
+//        listaObras.add(obras3)
+//
+//        val obras4 = Obras(R.drawable.pint4,"Idas e Vindas")
+//        listaObras.add(obras4)
+//    }
 }

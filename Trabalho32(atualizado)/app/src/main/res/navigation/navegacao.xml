@@ -59,4 +59,26 @@
             android:id="@+id/action_descricaoPint4_to_listaObras"
             app:destination="@id/listaObras" />
     </fragment>
+    <fragment
+        android:id="@+id/addObra"
+        android:name="com.example.trabalho32.addObra"
+        android:label="fragment_add_obra"
+        tools:layout="@layout/fragment_add_obra" />
+    <fragment
+        android:id="@+id/gerenObras2"
+        android:name="com.example.trabalho32.GerenObras"
+        android:label="fragment_geren_obras"
+        tools:layout="@layout/fragment_geren_obras" >
+        <action
+            android:id="@+id/action_gerenObras2_to_addObra"
+            app:destination="@id/addObra" />
+        <action
+            android:id="@+id/action_gerenObras2_to_obras_add_teste"
+            app:destination="@id/obras_add_teste" />
+    </fragment>
+    <fragment
+        android:id="@+id/obras_add_teste"
+        android:name="com.example.trabalho32.obras_add_teste"
+        android:label="fragment_obras_add_teste"
+        tools:layout="@layout/fragment_obras_add_teste" />
 </navigation>

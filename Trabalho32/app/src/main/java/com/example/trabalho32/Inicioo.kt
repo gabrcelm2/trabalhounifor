@@ -23,7 +23,7 @@ class Inicioo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_inicioo, container, false)
-        view.findViewById<Button>(R.id.btinicio).setOnClickListener {
+        view.findViewById<Button>(R.id.btinicio).setOnClickListener{
 
             Navigation.findNavController(view).navigate(R.id.action_inicioo_to_listaObras)
 
@@ -31,5 +31,15 @@ class Inicioo : Fragment() {
 
 
         return view
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            Inicioo().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
     }
 }

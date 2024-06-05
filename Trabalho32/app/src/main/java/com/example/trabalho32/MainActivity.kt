@@ -1,7 +1,6 @@
 package com.example.trabalho32
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,12 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController : NavController = navHostFragment.navController
         NavigationUI.setupActionBarWithNavController(this, navController)
-
 
 
         binding.bottomNavigationView.setOnItemSelectedListener {
@@ -52,16 +48,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun replaceFragment(fragment: Fragment) {

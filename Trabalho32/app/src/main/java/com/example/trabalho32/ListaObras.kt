@@ -1,14 +1,12 @@
 package com.example.trabalho32
 
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.SearchView
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import com.example.trabalho32.databinding.FragmentGerenObrasBinding
+import android.content.Intent
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trabalho32.adapter.ObrasAdapter
 import com.example.trabalho32.databinding.FragmentListaObrasBinding
@@ -27,13 +25,9 @@ class ListaObras : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListaObrasBinding.inflate(inflater, container, false)
-        val view = binding.root
+        return binding.root
 
-        view.findViewById<Button>(R.id.btvoltar).setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_listaObras_to_inicioo)
-        }
 
-        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,19 +37,19 @@ class ListaObras : Fragment() {
 
         binding.txtNomeUsuario.text = "Bem-vindo(a)"
         val recyclerViewObras = binding.recyclerViewObras
-        recyclerViewObras.layoutManager = GridLayoutManager(requireContext(), 2)
-        getObras()
+        recyclerViewObras.layoutManager = GridLayoutManager(requireContext(),2)
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
         recyclerViewObras.setHasFixedSize(true)
         recyclerViewObras.adapter = obrasAdapter
+        getObras()
+
     }
 
-
-    private fun getObras() {
-        val obras1 = Obras(R.drawable.pint1, "Amor e Ódio")
+    private fun getObras(){
+        val obras1 = Obras(R.drawable.pint1,"Amor e Ódio")
         listaObras.add(obras1)
 
-        val obras2 = Obras(R.drawable.pint2, "Luz na Escuridão")
+        val obras2 = Obras(R.drawable.pint2,"Luz na Escuridão")
         listaObras.add(obras2)
 
         val obras3 = Obras(R.drawable.pint3,"Um dia com Ela")
