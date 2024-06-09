@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
+import com.example.trabalho32.databinding.FragmentGerenObrasBinding
+import com.example.trabalho32.databinding.FragmentIniciooBinding
 
 
 class Inicioo : Fragment() {
+
+    private lateinit var binding: FragmentIniciooBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,17 +23,29 @@ class Inicioo : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_inicioo, container, false)
-        view.findViewById<Button>(R.id.btinicio).setOnClickListener {
-
-            Navigation.findNavController(view).navigate(R.id.action_inicioo_to_listaObras)
+        binding = FragmentIniciooBinding.inflate(inflater, container, false)
+        return binding.root
 
         }
 
 
-        return view
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btinicio.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frame_layout, ListaObras())
+            fragmentTransaction.commit()
+        }
+
+
+
+
+
     }
 }

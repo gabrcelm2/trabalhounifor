@@ -1,5 +1,6 @@
 package com.example.trabalho32
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,10 @@ class MainActivityFunc : AppCompatActivity() {
 
                 R.id.gerenObras -> replaceFragment(GerenObras())
                 R.id.gerenVisitas -> replaceFragment(GerenVisitas())
+                R.id.voltar -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
 
                 else -> {
 

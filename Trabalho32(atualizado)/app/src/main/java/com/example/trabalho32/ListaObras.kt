@@ -22,19 +22,16 @@ class ListaObras : Fragment() {
     private lateinit var obrasAdapter: ObrasAdapter
     private val listaObras = mutableListOf<Obras>()
     private lateinit var recyclerView:RecyclerView
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListaObrasBinding.inflate(inflater, container, false)
-        val view = binding.root
 
-        view.findViewById<Button>(R.id.btvoltar).setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_listaObras_to_inicioo)
-        }
-
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,10 +42,16 @@ class ListaObras : Fragment() {
         binding.txtNomeUsuario.text = "Bem-vindo(a)"
         recyclerView = binding.recyclerViewObras
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        getObras()
+
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = obrasAdapter
+        binding.btvoltar.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.frame_layout, Inicioo())
+            fragmentTransaction.commit()
+        }
     }
 
     private fun initSearchView() {
@@ -76,17 +79,17 @@ class ListaObras : Fragment() {
         }
     }
 
-    private fun getObras() {
-        val obras1 = Obras(R.drawable.pint1, "Amor e Ódio")
-        listaObras.add(obras1)
-
-        val obras2 = Obras(R.drawable.pint2, "Luz na Escuridão")
-        listaObras.add(obras2)
-
-        val obras3 = Obras(R.drawable.pint3,"Um dia com Ela")
-        listaObras.add(obras3)
-
-        val obras4 = Obras(R.drawable.pint4,"Idas e Vindas")
-        listaObras.add(obras4)
-    }
+//    private fun getObras() {
+//        val obras1 = Obras(R.drawable.pint1, "Amor e Ódio")
+//        listaObras.add(obras1)
+//
+//        val obras2 = Obras(R.drawable.pint2, "Luz na Escuridão")
+//        listaObras.add(obras2)
+//
+//        val obras3 = Obras(R.drawable.pint3,"Um dia com Ela")
+//        listaObras.add(obras3)
+//
+//        val obras4 = Obras(R.drawable.pint4,"Idas e Vindas")
+//        listaObras.add(obras4)
+//    }
 }
