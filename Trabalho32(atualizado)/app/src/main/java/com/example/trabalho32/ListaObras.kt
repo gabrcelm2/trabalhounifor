@@ -42,7 +42,11 @@ class ListaObras : Fragment() {
         binding.txtNomeUsuario.text = "Bem-vindo(a)"
         recyclerView = binding.recyclerViewObras
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+<<<<<<< HEAD
 
+=======
+//        getObras()
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = obrasAdapter

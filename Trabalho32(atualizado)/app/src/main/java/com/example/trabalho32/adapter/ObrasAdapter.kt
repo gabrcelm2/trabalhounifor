@@ -35,7 +35,11 @@ class ObrasAdapter(private val context:
 
     override fun onBindViewHolder(holder: ObrasViewHolder, position: Int) {
 //        holder.imgObra.setImageResource(listaObras[position].img!!)
+<<<<<<< HEAD
 /*        holder.txtObra.text = listaObras[position].nome
+=======
+        holder.txtObra.text = listaObras[position].nome
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
         holder.obraId = listaObras[position].id.toString()
 
         val bundle = Bundle()

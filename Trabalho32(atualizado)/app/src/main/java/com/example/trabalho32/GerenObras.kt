@@ -42,6 +42,7 @@ class GerenObras : Fragment() {
         obrasAdapter = ObrasAdapter(requireContext(), listaObras)
         recyclerViewObras.setHasFixedSize(true)
         recyclerViewObras.adapter = obrasAdapter
+<<<<<<< HEAD
 
 
 
@@ -52,12 +53,17 @@ class GerenObras : Fragment() {
         }
 
         binding.btadd.setOnClickListener {
+=======
+        binding.btgeren.setOnClickListener {
+           // Navigation.findNavController(view).navigate(R.id.action_gerenObras2_to_obras_add_teste)
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
             val fragmentManager = parentFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.frame_layout2, addObra())
             fragmentTransaction.commit()
         }
 
+<<<<<<< HEAD
         binding.btremover.setOnClickListener {
             val fragmentManager = parentFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
@@ -65,6 +71,8 @@ class GerenObras : Fragment() {
             fragmentTransaction.commit()
         }
 
+=======
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
 //        getObras()
 
     }

@@ -58,16 +58,22 @@
 
     <Button
         android:id="@+id/btgeren"
+<<<<<<< HEAD
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:gravity="center"
         android:textSize="35sp"
+=======
+        android:layout_width="66dp"
+        android:layout_height="51dp"
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.957" />
 
     <Button
@@ -99,4 +105,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.856" />
+=======
+        app:layout_constraintVertical_bias="0.957"
+        app:navGraph="@navigation/navegacao"
+        />
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,10 @@ package com.example.trabalho32
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+<<<<<<< HEAD
 import android.graphics.Color
+=======
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Base64
@@ -15,7 +18,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+<<<<<<< HEAD
 import com.google.android.material.snackbar.Snackbar
+=======
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.io.ByteArrayOutputStream
@@ -37,7 +43,11 @@ class addObra : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view = inflater.inflate(R.layout.fragment_add_obra, container, false)
+<<<<<<< HEAD
         nomeObra = view.findViewById<EditText>(R.id.NomeObra)
+=======
+        nomeObra = view.findViewById<EditText>(R.id.editTextNomeObra)
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
         imageView = view.findViewById<ImageView>(R.id.imageViewObra)
 
         imageView.setOnClickListener {
@@ -45,6 +55,7 @@ class addObra : Fragment() {
         }
 
         view.findViewById<Button>(R.id.buttonSalvar).setOnClickListener {
+<<<<<<< HEAD
 
             when{
                 nomeObra?.text.isNullOrEmpty() -> {
@@ -72,6 +83,15 @@ class addObra : Fragment() {
                 "nome" to nome,
                 "imagem" to imageString
             ))
+=======
+            Log.d("banco","onclick escrever banco")
+            Firebase.firestore.collection("Obras").add(mapOf(
+                "nome" to nomeObra?.text.toString(),
+                "imagem" to imageString
+
+            ))
+
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
         }
 
         return view
@@ -109,6 +129,7 @@ class addObra : Fragment() {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         return byteArrayOutputStream.toByteArray()
     }
+<<<<<<< HEAD
 
     private fun mensagem(view: View, mensagem: String, cor: String) {
         val snackbar = Snackbar.make(view, mensagem, Snackbar.LENGTH_SHORT)
@@ -116,4 +137,6 @@ class addObra : Fragment() {
         snackbar.setTextColor(Color.WHITE)
         snackbar.show()
     }
+=======
+>>>>>>> 09b7573a852c924ee869302d70df0ccec147c7af
 }
